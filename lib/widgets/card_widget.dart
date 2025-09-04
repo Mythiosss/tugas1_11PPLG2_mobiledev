@@ -2,72 +2,64 @@ import 'package:flutter/material.dart';
 import 'package:tugas_flutter_1/widgets/custom_button.dart';
 
 class CardWidget extends StatelessWidget {
+  final String task;
+  final String duedate;
+
+  const CardWidget ({
+    super.key, 
+    required this.task, 
+    required this.duedate,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 383,
-          height: 74,
-          decoration: ShapeDecoration(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      color: const Color(0xC9DCDCDC),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  task,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontFamily: 'Jockey One',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  'Due Date : $duedate',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontFamily: 'Jockey One',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
             ),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                top: 0,
-                child: Container(
-                  width: 383,
-                  height: 74,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xC9DCDCDC),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 291,
-                top: 21,
-                child: CustomButton(myText: "Done", myTextColor: Colors.green, myBgColor: Colors.white, 
-                onPressed: () {
-                  
-                },),
-              ),
-              Positioned(
-                left: 13,
-                top: 7,
-                child: Text(
-                  'TODO 1',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 13,
-                    fontFamily: 'Jockey One',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 13,
-                top: 37,
-                child: Text(
-                  'Due Date : ',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 13,
-                    fontFamily: 'Jockey One',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-            ],
-          ),
+
+            CustomButton(
+              myText: "Done",
+              myTextColor: Colors.green,
+              myBgColor: Colors.white,
+              onPressed: () {
+                
+              },
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
