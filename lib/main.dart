@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tugas_flutter_1/routes/pages.dart';
+import 'package:tugas_flutter_1/routes/routes.dart';
+// import 'package:tugas_flutter_1/routes/app_pages.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return GetMaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      initialRoute: AppRoutes.loginPage, // pakai string dari AppRoutes
+      getPages: AppPages.pages,          // pakai daftar dari AppPages
     );
   }
 }
