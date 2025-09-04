@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tugas_flutter_1/controllers/auth_controller.dart';
+import 'package:tugas_flutter_1/widgets/custom_tf.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -50,7 +51,7 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       // email
-                      Te(
+                      CustomTf(
                         label: 'Username',
                         prefixIcon: const Icon(Icons.email_outlined),
                         controller: controller.username,
@@ -61,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       ValueListenableBuilder<bool>(
                         valueListenable: hidePass,
                         builder: (context, value, _) {
-                          return AppTextField(
+                          return CustomTf(
                             label: 'Password',
                             obscureText: value,
                             prefixIcon: const Icon(Icons.lock_outline),

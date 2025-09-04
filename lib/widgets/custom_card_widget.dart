@@ -49,14 +49,14 @@ class CustomCardWidget extends StatelessWidget {
               ],
             ),
 
-            CustomButton(
-              myText: "Done",
-              myTextColor: Colors.green,
-              myBgColor: Colors.white,
-              onPressed: () {
-                
-              },
-            ),
+          CustomButton(
+            text: "Done",
+            textColor: Colors.green,
+            bgColor: Colors.white,
+            onPressed: () {},
+          ),
+
+
           ],
         ),
       ),

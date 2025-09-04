@@ -1,6 +1,6 @@
 // lib/routes/app_pages.dart
 import 'package:get/get.dart';
-import 'package:tugas_flutter_1/pages/login_page.dart';
+import 'package:tugas_flutter_1/fragments/login_page.dart';
 // import 'package:tugas_flutter_1/pages/main_menu_page.dart';
 // import 'package:tugas_flutter_1/pages/history_page.dart';
 // import 'package:tugas_flutter_1/pages/todo_page.dart';
