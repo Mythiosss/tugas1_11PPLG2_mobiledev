@@ -30,7 +30,7 @@ A **super chill** Android ToDoList app 🚀:
 ---
 
 ### 🦖 Player 2: `dettarune`
-![Commits](https://badgen.net/github/commits/dettarune/tugas1_11PPLG2_mobiledev?icon=github&label=commits%20by%20dettarune)
+![Commits](https://badgen.net/github/commits/Mythiosss/tugas1_11PPLG2_mobiledev?icon=github&label=commits%20by%20dettarune)
 
 ---
 
