@@ -5,31 +5,10 @@
 ---
 
 ## 🌈 What is this???
-A **super chill** Android ToDoList app 🚀 yang bakal nemenin lo buat nulis semua hal random:
+A **super chill** Android ToDoList app 🚀:
 - Mau nyatet tugas kuliah 🎓
 - Mau bikin reminder belanja Indomie 🍜
 - Atau sekedar “Jangan lupa tidur jam 3 pagi” 😴
-
----
-
-## 🖼️ Random Vibes
-![weird-meme](https://i.imgur.com/YoWt6Vg.png)  
-<sub><sup>(Yes, this app has nothing to do with cats... but cats >>> everything)</sup></sub> 🐈✨
-
----
-
-## ⚡ Features (a.k.a kenapa lo harus coba)
-- 📝 Tambah, edit, hapus to-do dengan gampang
-- 🎨 UI clean tapi tetep aesthetic
-- 🌙 Dark mode (biar ga silau pas ngoding tengah malem)
-- 📊 Statistik fake biar keliatan produktif
-
----
-
-## 🛠️ Tech Stack
-- Kotlin 🧡
-- Android Studio 💻
-- Jetpack Compose (biar keliatan kekinian) ✨
 
 ---
 
@@ -45,6 +24,22 @@ A **super chill** Android ToDoList app 🚀 yang bakal nemenin lo buat nulis sem
 ![Stats](https://github-readme-stats.vercel.app/api?username=Mythiosss&show_icons=true&theme=radical)
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Mythiosss&layout=compact&theme=radical)
 
+---
+
+## ⚡ Features
+- 📝 Add todo
+- 🎨 Keren
+- 🌙 Dark mode 
+
+---
+
+## 🛠️ Tech Stack
+- Flutter 🧡
+- Android Studio 💻
+- Laptop
+
+---
+Clone aja bang, nih tutornya
 ```bash
 git clone https://github.com/Mythiosss/tugas1_11PPLG2_mobiledev
 cd tugas1_11PPLG2_mobiledev
