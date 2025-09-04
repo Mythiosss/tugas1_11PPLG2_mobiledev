@@ -4,7 +4,7 @@
 
 ---
 
-## 🌈 What is this???
+##  What is this???
 A **super chill** Android ToDoList app 🚀:
 - Mau nyatet tugas kuliah 🎓
 - Mau bikin reminder belanja Indomie 🍜
@@ -14,7 +14,7 @@ A **super chill** Android ToDoList app 🚀:
 
 ## 📊 Project Stats (we all love fake productivity)
 
-### 🌈 Overall Repo Vibes
+###  Overall Repo Vibes
 ![Stars](https://img.shields.io/github/stars/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=ff69b4&logo=github)
 ![Forks](https://img.shields.io/github/forks/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=blueviolet&logo=github)
 ![Issues](https://img.shields.io/github/issues/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=yellow&logo=github)
