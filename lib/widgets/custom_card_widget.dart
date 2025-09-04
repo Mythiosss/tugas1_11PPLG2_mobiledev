@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_flutter_1/widgets/custom_button.dart';
 
-class CardWidget extends StatelessWidget {
+class CustomCardWidget extends StatelessWidget {
   final String task;
   final String duedate;
 
-  const CardWidget ({
+  const CustomCardWidget ({
     super.key, 
     required this.task, 
     required this.duedate,

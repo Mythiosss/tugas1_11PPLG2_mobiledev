@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CustomTf extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
 
   final TextEditingController controller;
-  final InputDecoration decoration;
+  final String hint;
 
-  const CustomTf({super.key, required this.controller, required this.decoration});
+  const CustomTextField({super.key, required this.controller, required this.hint});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      decoration: decoration,
+      decoration: InputDecoration(
+        label: Text(hint),
+      ),
     );
   }
 }
