@@ -12,7 +12,32 @@ A **super chill** Android ToDoList app 🚀:
 
 ---
 
-## 📈 GitHub Stats (cuz we all love fake productivity)
+## 📊 Project Stats (we all love fake productivity)
+
+### 🌈 Overall Repo Vibes
+![Stars](https://img.shields.io/github/stars/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=ff69b4&logo=github)
+![Forks](https://img.shields.io/github/forks/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=blueviolet&logo=github)
+![Issues](https://img.shields.io/github/issues/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=yellow&logo=github)
+![PRs](https://img.shields.io/github/issues-pr/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=orange&logo=github)
+![Contributors](https://img.shields.io/github/contributors/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=green&logo=github)
+![Commit Activity](https://img.shields.io/github/commit-activity/m/Mythiosss/tugas1_11PPLG2_mobiledev?style=for-the-badge&color=red&logo=github)
+
+---
+
+### 👾 Player 1: `Mythiosss`
+![Commits](https://badgen.net/github/commits/Mythiosss/tugas1_11PPLG2_mobiledev?icon=github&label=commits%20by%20Mythiosss)
+
+---
+
+### 🦖 Player 2: `dettarune`
+![Commits](https://badgen.net/github/commits/dettarune/tugas1_11PPLG2_mobiledev?icon=github&label=commits%20by%20dettarune)
+
+---
+
+🧑‍💻 *no flags here*  
+
+
+## 📈 GitHub Stats 
 
 ###  dettarune
 ![Stats](https://github-readme-stats.vercel.app/api?username=dettarune&show_icons=true&theme=radical)
