@@ -55,11 +55,9 @@ class CustomCardWidget extends StatelessWidget {
             bgColor: Colors.white,
             onPressed: () {},
           ),
-
-
           ],
         ),
       ),
     );
   }
-}
+} 
