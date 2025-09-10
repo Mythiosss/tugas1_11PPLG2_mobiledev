@@ -12,6 +12,10 @@ class AddTodoPage extends StatelessWidget {
 
   final List<String> _categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
 
+  // warna mint konsisten
+  final mint = const Color(0xFF7FD6D6);
+  final mintDark = const Color(0xFF5CB3B3);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +24,7 @@ class AddTodoPage extends StatelessWidget {
         title: const Text('Tambah Todo'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.blue.shade700,
+        backgroundColor: mintDark,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -99,7 +103,7 @@ class AddTodoPage extends StatelessWidget {
                       return CustomButton(
                         text: 'Simpan',
                         textColor: Colors.white,
-                        bgColor: enabled ? Colors.blue : Colors.grey,
+                        bgColor: enabled ? mintDark : Colors.grey,
                         onPressed: enabled
                             ? () => c.addTodo()
                             : () {
