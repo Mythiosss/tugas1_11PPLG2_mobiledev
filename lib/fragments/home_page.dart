@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tugas_flutter_1/controllers/todo_controller.dart';
-import 'package:tugas_flutter_1/routes/routes.dart';
-import 'package:tugas_flutter_1/widgets/custom_button.dart';
-import 'package:tugas_flutter_1/widgets/custom_card_widget.dart';
+import '../controllers/todo_controller.dart';
+import '../routes/routes.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final TodoController todoController = Get.put(TodoController());
+  final TodoController todoController = Get.find<TodoController>();
 
   final mint = const Color(0xFF7FD6D6);
   final mintDark = const Color(0xFF5CB3B3);
-  final cardBg = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +17,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xFFF5F5F5),
       body: Column(
         children: [
-          // HEADER
+
           Stack(
             children: [
               Container(
@@ -42,22 +39,10 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Du-Itin!",
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      Text("Du-Itin!",
+                          style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white)),
                       SizedBox(height: 4),
-                      Text(
-                        "Halo, Mythios!",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white70,
-                        ),
-                      ),
+                      Text("Halo, Mythios!", style: TextStyle(fontSize: 16, color: Colors.white70)),
                     ],
                   ),
                 ),
@@ -68,15 +53,13 @@ class HomePage extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 28,
                   backgroundColor: Colors.white,
-                  child: Icon(Icons.person, size: 32, color: mintDark),
+                  child: Icon(Icons.person, size: 32, color: Colors.black54),
                 ),
               ),
             ],
           ),
-
           const SizedBox(height: 46),
 
-          // BODY
           Expanded(
             child: Container(
               width: double.infinity,
@@ -86,21 +69,12 @@ class HomePage extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        "Belum ada todo di list-mu.",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
-                        ),
-                      ),
+                      const Text("Belum ada todo di list-mu.", style: TextStyle(fontSize: 14, color: Colors.black54)),
                       const SizedBox(height: 12),
-                      CustomButton(
-                        text: 'Tambah Todo',
-                        textColor: Colors.white,
-                        bgColor: mintDark,
-                        onPressed: () {
-                          Get.toNamed(AppRoutes.addTodo);
-                        },
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(backgroundColor: mintDark),
+                        onPressed: () => Get.toNamed(AppRoutes.addTodo),
+                        child: const Text('Tambah Todo'),
                       ),
                     ],
                   );
@@ -110,15 +84,20 @@ class HomePage extends StatelessWidget {
                   itemCount: todoController.todos.length,
                   itemBuilder: (context, index) {
                     final todo = todoController.todos[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: CustomCardWidget(
-                        task: todo.namaTodo,
-                        duedate: todo.deskripsiTodo,
-                        category: todo.kategoriTodo,
-                        categoryColor: todoController.getCategoryColor(todo.kategoriTodo),
-                        onDone: () => todoController.toggleCompleted(index),
-                        onDelete: () => todoController.deleteTodo(index),
+                    return Card(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: todoController.getCategoryColor(todo.kategoriTodo),
+                          child: Icon(todo.isCompleted ? Icons.check : Icons.task, color: Colors.white),
+                        ),
+                        title: Text(todo.namaTodo),
+                        subtitle: Text(todo.deskripsiTodo),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () => todoController.deleteTodo(index),
+                        ),
+                        onTap: () => todoController.toggleCompleted(index),
                       ),
                     );
                   },
@@ -130,9 +109,7 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: mintDark,
-        onPressed: () {
-          Get.toNamed(AppRoutes.addTodo);
-        },
+        onPressed: () => Get.toNamed(AppRoutes.addTodo),
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );

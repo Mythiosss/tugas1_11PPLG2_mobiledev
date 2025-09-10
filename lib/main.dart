@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tugas_flutter_1/bindings/todo_binding.dart';
-import 'package:tugas_flutter_1/routes/pages.dart';
-import 'package:tugas_flutter_1/routes/routes.dart';
-// import 'package:tugas_flutter_1/routes/app_pages.dart';
+import 'bindings/todo_binding.dart';
+import 'routes/pages.dart';
+import 'routes/routes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -15,13 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Todo App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.loginPage,
+      initialRoute: AppRoutes.homePage,
       getPages: AppPages.pages,
-      initialBinding: TodoBinding(),
+      initialBinding: TodoBinding(), // <- penting supaya onInit di controller dipanggil
     );
   }
 }
