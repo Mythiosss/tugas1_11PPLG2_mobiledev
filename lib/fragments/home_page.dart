@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tugas_flutter_1/widgets/custom_card_widget.dart';
 import '../controllers/todo_controller.dart';
 import '../routes/routes.dart';
 
@@ -84,22 +85,31 @@ class HomePage extends StatelessWidget {
                   itemCount: todoController.todos.length,
                   itemBuilder: (context, index) {
                     final todo = todoController.todos[index];
-                    return Card(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: todoController.getCategoryColor(todo.kategoriTodo),
-                          child: Icon(todo.isCompleted ? Icons.check : Icons.task, color: Colors.white),
-                        ),
-                        title: Text(todo.namaTodo),
-                        subtitle: Text(todo.deskripsiTodo),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () => todoController.deleteTodo(index),
-                        ),
-                        onTap: () => todoController.toggleCompleted(index),
-                      ),
-                    );
+                    // return Card(
+                    //   margin: const EdgeInsets.symmetric(vertical: 8),
+                    //   child: ListTile(
+                    //     leading: CircleAvatar(
+                    //       backgroundColor: todoController.getCategoryColor(todo.kategoriTodo),
+                    //       child: Icon(todo.isCompleted ? Icons.check : Icons.task, color: Colors.white),
+                    //     ),
+                    //     title: Text(todo.namaTodo),
+                    //     subtitle: Text(todo.deskripsiTodo),
+                    //     trailing: IconButton(
+                    //       icon: const Icon(Icons.delete),
+                    //       onPressed: () => todoController.deleteTodo(index),
+                    //     ),
+                    //     onTap: () => todoController.toggleCompleted(index),
+                    //   ),
+                    // );
+                    return CustomCardWidget(
+                      bgcolor: todoController.getCategoryColor(todo.kategoriTodo), 
+                      text: todo.namaTodo, 
+                      todo: todo.deskripsiTodo,
+                      iconDel: Icon(Icons.delete), 
+                      iconDone: Icon(todo.isCompleted ? Icons.check : Icons.task, color: Colors.white), 
+                      onDelete: () => todoController.deleteTodo(index), 
+                      onDone: () => todoController.toggleCompleted(index), 
+                      );
                   },
                 );
               }),
