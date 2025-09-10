@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                       text: todo.namaTodo, 
                       todo: todo.deskripsiTodo,
                       iconDel: Icon(Icons.delete), 
-                      iconDone: Icon(todo.isCompleted ? Icons.check : Icons.task, color: Colors.white), 
+                      iconDone: Icon(todo.isCompleted ? Icons.check : Icons.cancel, color: todo.isCompleted ? Colors.white : Colors.red), 
                       onDelete: () => todoController.deleteTodo(index), 
                       onDone: () => todoController.toggleCompleted(index), 
                     );
