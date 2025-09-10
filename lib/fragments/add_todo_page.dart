@@ -8,7 +8,7 @@ import 'package:tugas_flutter_1/widgets/custom_tf.dart';
 class AddTodoPage extends StatelessWidget {
   AddTodoPage({super.key});
 
-  final AddTodoController c = Get.put(AddTodoController());
+  final AddTodoController c = Get.find<AddTodoController>();
 
   final List<String> _categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
 
@@ -90,10 +90,12 @@ class AddTodoPage extends StatelessWidget {
 
                   Expanded(
                     child: Obx(() {
-                      final isNameOk = c.namaController.text.trim().isNotEmpty;
                       final isCategoryOk =
                           c.selectedKategori.value.trim().isNotEmpty;
+                      final isNameOk =
+                          c.namaController.text.trim().isNotEmpty;
                       final enabled = isNameOk && isCategoryOk;
+
                       return CustomButton(
                         text: 'Simpan',
                         textColor: Colors.white,

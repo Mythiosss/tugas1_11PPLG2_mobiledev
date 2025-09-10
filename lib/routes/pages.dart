@@ -1,20 +1,20 @@
-
 import 'package:get/get.dart';
-import 'package:tugas_flutter_1/fragments/add_todo_page.dart';
-import 'package:tugas_flutter_1/fragments/history_page.dart';
-import 'package:tugas_flutter_1/fragments/home_page.dart';
-import 'package:tugas_flutter_1/fragments/profile_page.dart';
-import 'package:tugas_flutter_1/fragments/login_page.dart';
-import 'package:tugas_flutter_1/pages/bottom_nav.dart';
-import 'package:tugas_flutter_1/routes/routes.dart';
+import '../bindings/todo_binding.dart';
+import '../fragments/home_page.dart';
+import '../fragments/add_todo_page.dart';
+import '../fragments/history_page.dart';
+import '../fragments/profile_page.dart';
+import '../fragments/login_page.dart';
+import '../pages/bottom_nav.dart';
+import 'routes.dart';
 
 class AppPages {
-  static final pages =[
-    GetPage(name: AppRoutes.mainMenuPage, page: ()=> BottomNav()),
-    GetPage(name: AppRoutes.historyPage, page: ()=> HistoryPage()),
-    GetPage(name: AppRoutes.homePage, page: ()=> HomePage()),
-    GetPage(name: AppRoutes.loginPage, page: ()=> LoginPage()),
-    GetPage(name: AppRoutes.profilePage, page: ()=> ProfilePage()),
-    GetPage(name: AppRoutes.addTodo, page: ()=> AddTodoPage()),
+  static final pages = [
+    GetPage(name: AppRoutes.mainMenuPage, page: () => BottomNav(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.homePage, page: () => HomePage(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.historyPage, page: () => HistoryPage(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.loginPage, page: () => LoginPage(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.profilePage, page: () => ProfilePage(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.addTodo, page: () => AddTodoPage(), binding: TodoBinding()),
   ];
-} 
+}
