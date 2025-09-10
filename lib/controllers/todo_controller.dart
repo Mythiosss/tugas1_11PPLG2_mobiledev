@@ -6,16 +6,10 @@ class TodoController extends GetxController {
   final RxList<TodoModel> todos = <TodoModel>[].obs;
   final RxList<TodoModel> history = <TodoModel>[].obs;
 
-  static const Map<String, Color> _categoryColors = {
-    "Sekolah": Color(0xFF7FD6D6),
-    "Pribadi": Color(0xFF6FD2C2),
-    "Pekerjaan": Color(0xFF4DB6AC),
-  };
-
   @override
   void onInit() {
     super.onInit();
-    // Pastikan dummy cuma ditambahkan kalau list masih kosong
+
     if (todos.isEmpty) {
       todos.addAll([
         TodoModel(
@@ -36,10 +30,6 @@ class TodoController extends GetxController {
       ]);
     }
 
-  }
-
-  Color getCategoryColor(String kategori) {
-    return _categoryColors[kategori] ?? Colors.grey;
   }
 
   void addTodo(TodoModel todo) {
