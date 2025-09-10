@@ -18,7 +18,6 @@ class LoginPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // header
               Container(
                 width: double.infinity,
                 height: 240,
@@ -137,7 +136,6 @@ class LoginPage extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // sementara snackbar, bisa nanti ganti ke Get.to(ForgotPage());
                                 Get.snackbar(
                                   "Forgot Password",
                                   "Redirecting to reset password...",
@@ -172,7 +170,6 @@ class LoginPage extends StatelessWidget {
 
               GestureDetector(
                 onTap: () {
-                  // nanti arahkan ke halaman register
                   Get.snackbar(
                     "Sign Up",
                     "Redirecting to sign up page...",
