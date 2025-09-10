@@ -12,7 +12,6 @@ class AddTodoPage extends StatelessWidget {
 
   final List<String> _categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
 
-  // warna mint konsisten
   final mint = const Color(0xFF7FD6D6);
   final mintDark = const Color(0xFF5CB3B3);
 
@@ -21,77 +20,98 @@ class AddTodoPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        title: const Text('Tambah Todo'),
+        title: const Text(
+          'Tambah Todo Page',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: mintDark,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 20, 16, 24),
+          padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text(
                 'Buat Todo Baru',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 6),
               const Text(
-                'Isi detail todo-mu. Nama dan kategori wajib diisi.',
+                'Isi detail todo. Nama dan kategori wajib diisi.',
                 style: TextStyle(fontSize: 14, color: Colors.black54),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 20),
 
-              CustomTextField(
-                controller: c.namaController,
-                label: 'Nama Todo',
-                hint: 'Contoh: Belajar Flutter',
-                prefixIcon: Icons.task,
-              ),
-              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 6,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    CustomTextField(
+                      controller: c.namaController,
+                      label: 'Nama Todo',
+                      hint: 'Contoh: Beli Gula',
+                      prefixIcon: Icons.task,
+                    ),
+                    const SizedBox(height: 16),
 
-              CustomTextField(
-                controller: c.deskripsiController,
-                label: 'Deskripsi',
-                hint: 'Keterangan singkat (opsional)',
-                prefixIcon: Icons.description,
-                keyboardType: TextInputType.multiline,
-              ),
-              const SizedBox(height: 12),
+                    CustomTextField(
+                      controller: c.deskripsiController,
+                      label: 'Deskripsi',
+                      hint: 'Keterangan singkat (opsional)',
+                      prefixIcon: Icons.description,
+                      keyboardType: TextInputType.multiline,
+                    ),
+                    const SizedBox(height: 16),
 
-              Obx(
-                    () => CustomDropdown(
-                  items: _categories,
-                  value: c.selectedKategori.value.isEmpty
-                      ? null
-                      : c.selectedKategori.value,
-                  onChanged: (v) => c.setKategori(v ?? ""),
-                  label: 'Kategori',
+                    Obx(
+                          () => CustomDropdown(
+                        items: _categories,
+                        value: c.selectedKategori.value.isEmpty
+                            ? null
+                            : c.selectedKategori.value,
+                        onChanged: (v) => c.setKategori(v ?? ""),
+                        label: 'Kategori',
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 28),
 
+              // Tombol Aksi
               Row(
                 children: [
                   Expanded(
                     child: CustomButton(
                       text: 'Batal',
-                      textColor: Colors.black,
+                      textColor: mintDark,
                       bgColor: Colors.white,
                       onPressed: () {
                         c.clearFields();
                         Get.back();
                       },
-                      height: 48,
+                      height: 52,
                     ),
                   ),
-                  const SizedBox(width: 12),
-
+                  const SizedBox(width: 14),
                   Expanded(
                     child: Obx(() {
                       final isCategoryOk =
@@ -105,7 +125,9 @@ class AddTodoPage extends StatelessWidget {
                         textColor: Colors.white,
                         bgColor: enabled ? mintDark : Colors.grey,
                         onPressed: enabled
-                            ? () => c.addTodo()
+                            ? () {
+                          c.addTodo();
+                        }
                             : () {
                           Get.snackbar(
                             'Todo Info',
@@ -113,7 +135,7 @@ class AddTodoPage extends StatelessWidget {
                             snackPosition: SnackPosition.BOTTOM,
                           );
                         },
-                        height: 48,
+                        height: 52,
                       );
                     }),
                   ),

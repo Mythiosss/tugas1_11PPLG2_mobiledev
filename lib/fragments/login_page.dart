@@ -78,7 +78,6 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 28),
 
-              // modern card form
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22.0),
                 child: Container(

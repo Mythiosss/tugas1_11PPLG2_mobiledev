@@ -32,12 +32,14 @@ class AddTodoController extends GetxController {
         kategoriTodo: selectedKategori.value,
       ),
     );
-    Get.back();
+
     Get.snackbar(
       "Berhasil",
       "Kegiatan berhasil ditambahkan!",
       snackPosition: SnackPosition.BOTTOM,
     );
+
+    Get.back();
   }
 
   void clearFields() {

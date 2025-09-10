@@ -15,7 +15,7 @@ class TodoController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Pastikan dummy cuma ditambahkan kalau list masih kosong
+
     if (todos.isEmpty) {
       todos.addAll([
         TodoModel(
@@ -54,7 +54,7 @@ class TodoController extends GetxController {
     todos.refresh();
   }
 
-  void deleteTodo(int index) {
+    void deleteTodo(int index) {
     if (index < 0 || index >= todos.length) return;
     final removed = todos.removeAt(index);
     removed.completedAt = DateTime.now();

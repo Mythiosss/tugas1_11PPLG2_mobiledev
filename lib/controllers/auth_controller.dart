@@ -26,7 +26,7 @@ class AuthController extends GetxController {
         colorText: Colors.white,
         duration: Duration(seconds: 2),
       );
-      Get.toNamed(AppRoutes.mainMenuPage);
+      Get.offNamed(AppRoutes.mainMenuPage);
     } else {
       Get.snackbar(
         "Auth",
