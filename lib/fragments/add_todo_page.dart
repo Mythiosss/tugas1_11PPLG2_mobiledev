@@ -8,7 +8,7 @@ import 'package:tugas_flutter_1/widgets/custom_tf.dart';
 class AddTodoPage extends StatelessWidget {
   AddTodoPage({super.key});
 
-  final AddTodoController c = Get.find(AddTOdo());
+  final AddTodoController c = Get.put(AddTodoController());
 
   final List<String> _categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
 
