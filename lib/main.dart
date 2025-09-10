@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.homePage,
+      initialRoute: AppRoutes.loginPage,
       getPages: AppPages.pages,
-      initialBinding: TodoBinding(), // <- penting supaya onInit di controller dipanggil
+      initialBinding: TodoBinding(),
     );
   }
 }
