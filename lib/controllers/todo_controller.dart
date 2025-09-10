@@ -35,8 +35,7 @@ class TodoController extends GetxController {
         ),
       ]);
     }
-    // debug: cek onInit dipanggil dan length
-    // print('TodoController onInit - hash=${this.hashCode} - todos=${todos.length}');
+
   }
 
   Color getCategoryColor(String kategori) {
