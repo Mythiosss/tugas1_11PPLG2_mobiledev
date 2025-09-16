@@ -5,5 +5,6 @@ class AppRoutes{
   static const String loginPage ="/loginPage";
   static const String mainMenuPage ="/mainMenuPage";
   static const String addTodo ="/addTodoPage";
-
+  static const String sharlyfPage ="/sharlyfPage";
+  static const String amirPage ="/amirPage";
 }

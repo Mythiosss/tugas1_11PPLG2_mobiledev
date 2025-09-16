@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:tugas_flutter_1/fragments/amir_profile.dart';
+import 'package:tugas_flutter_1/fragments/sharlyf_profile.dart';
 import '../bindings/todo_binding.dart';
 import '../fragments/home_page.dart';
 import '../fragments/add_todo_page.dart';
@@ -16,5 +18,7 @@ class AppPages {
     GetPage(name: AppRoutes.loginPage, page: () => LoginPage(), binding: TodoBinding()),
     GetPage(name: AppRoutes.profilePage, page: () => ProfilePage(), binding: TodoBinding()),
     GetPage(name: AppRoutes.addTodo, page: () => AddTodoPage(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.sharlyfPage, page: () => SharlyfProfilePage()),
+    GetPage(name: AppRoutes.amirPage, page: () => AmirProfilePage()),
   ];
 }

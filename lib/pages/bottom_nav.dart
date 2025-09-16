@@ -10,17 +10,31 @@ class BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Scaffold(
-      body: bottomController.pages[bottomController.selectedIndex.value],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: bottomController.changePage,
-        currentIndex: bottomController.selectedIndex.value,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.task_alt_sharp), label: "Todo List"),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
+    return Obx(
+          () => Scaffold(
+        body: bottomController.pages[bottomController.selectedIndex.value],
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: bottomController.changePage,
+          currentIndex: bottomController.selectedIndex.value,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.black54,
+          backgroundColor: const Color(0xFF5CB3B3),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.task_alt_sharp),
+              label: "Todo List",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.history),
+              label: "History",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Profile",
+            ),
+          ],
+        ),
       ),
-    ),);
+    );
   }
 }

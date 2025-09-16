@@ -15,6 +15,33 @@ class AddTodoPage extends StatelessWidget {
   final mint = const Color(0xFF7FD6D6);
   final mintDark = const Color(0xFF5CB3B3);
 
+  String _formatDateTime(DateTime? dt) {
+    if (dt == null) return 'Tidak diatur';
+    return '${dt.day.toString().padLeft(2, '0')}-'
+        '${dt.month.toString().padLeft(2, '0')}-'
+        '${dt.year}';
+  }
+
+  Future<void> _pickDueDate(BuildContext context) async {
+    final now = DateTime.now();
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: c.selectedDueDate.value ?? now,
+      firstDate: DateTime(now.year - 2),
+      lastDate: DateTime(now.year + 5),
+    );
+
+    if (pickedDate == null) return;
+
+    final DateTime finalDateTime = DateTime(
+      pickedDate.year,
+      pickedDate.month,
+      pickedDate.day,
+    );
+
+    c.setDueDate(finalDateTime);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,6 +117,66 @@ class AddTodoPage extends StatelessWidget {
                         label: 'Kategori',
                       ),
                     ),
+
+                    const SizedBox(height: 16),
+
+                    // ===== Due Date row =====
+                    Obx(
+                          () => Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(12),
+                          onTap: () => _pickDueDate(context),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 14),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade50,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: Colors.grey.shade200),
+                            ),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.calendar_month,
+                                    color: Colors.black54),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Due Date',
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            color: Colors.black54),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        _formatDateTime(
+                                            c.selectedDueDate.value),
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          color: c.selectedDueDate.value == null
+                                              ? Colors.black38
+                                              : Colors.black87,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                if (c.selectedDueDate.value != null)
+                                  IconButton(
+                                    onPressed: () => c.setDueDate(null),
+                                    icon: const Icon(Icons.close),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -132,7 +219,7 @@ class AddTodoPage extends StatelessWidget {
                           Get.snackbar(
                             'Todo Info',
                             'Nama dan kategori harus diisi',
-                            snackPosition: SnackPosition.BOTTOM,
+                            snackPosition: SnackPosition.TOP,
                           );
                         },
                         height: 52,
