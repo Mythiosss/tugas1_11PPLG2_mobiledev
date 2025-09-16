@@ -102,12 +102,13 @@ class HomePage extends StatelessWidget {
                     //   ),
                     // );
                     return CustomCardWidget(
-                      text: todo.namaTodo,
-                      todo: todo.deskripsiTodo,
+                      namaTodo: todo.namaTodo,
+                      deskripsiTodo: todo.deskripsiTodo,
                       kategori: todo.kategoriTodo,
                       isCompleted: todo.isCompleted,
-                      onDelete: () => todoController.deleteTodo(index), 
-                      onDone: () => todoController.toggleCompleted(index), 
+                      dueDate: todo.dueDate,
+                      onDelete: () => todoController.deleteTodo(index),
+                      onDone: () => todoController.toggleCompleted(index),
                     );
                   },
                 );

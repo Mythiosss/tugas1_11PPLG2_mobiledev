@@ -9,10 +9,16 @@ class AddTodoController extends GetxController {
 
   var selectedKategori = "".obs;
 
+  final Rxn<DateTime> selectedDueDate = Rxn<DateTime>();
+
   final TodoController todoController = Get.find<TodoController>();
 
   void setKategori(String kategori) {
     selectedKategori.value = kategori;
+  }
+
+  void setDueDate(DateTime? dt) {
+    selectedDueDate.value = dt;
   }
 
   void addTodo() {
@@ -24,14 +30,27 @@ class AddTodoController extends GetxController {
       );
       return;
     }
+    try {
+      todoController.todos.add(
+        TodoModel(
+          namaTodo: namaController.text.trim(),
+          deskripsiTodo: deskripsiController.text.trim(),
+          kategoriTodo: selectedKategori.value,
+          dueDate: selectedDueDate.value,
+        ),
+      );
+    } catch (e) {
+      todoController.todos.add(
+        TodoModel(
+          namaTodo: namaController.text.trim(),
+          deskripsiTodo: deskripsiController.text.trim(),
+          kategoriTodo: selectedKategori.value,
+        ),
+      );
+    }
 
-    todoController.todos.add(
-      TodoModel(
-        namaTodo: namaController.text,
-        deskripsiTodo: deskripsiController.text,
-        kategoriTodo: selectedKategori.value,
-      ),
-    );
+    clearFields();
+
     Get.back();
     Get.snackbar(
       "Berhasil",
@@ -44,6 +63,7 @@ class AddTodoController extends GetxController {
     namaController.clear();
     deskripsiController.clear();
     selectedKategori.value = "";
+    selectedDueDate.value = null;
   }
 
   @override
@@ -52,5 +72,4 @@ class AddTodoController extends GetxController {
     deskripsiController.dispose();
     super.onClose();
   }
-
 }

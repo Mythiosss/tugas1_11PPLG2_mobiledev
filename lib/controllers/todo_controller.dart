@@ -46,8 +46,15 @@ class TodoController extends GetxController {
 
   void deleteTodo(int index) {
     if (index < 0 || index >= todos.length) return;
+    if (index < 0 || index >= todos.length) return;
+
     final removed = todos.removeAt(index);
-    removed.completedAt = DateTime.now();
+
+    if (removed.isCompleted) {
+      removed.completedAt = DateTime.now();
+    } else {
+      removed.removedAt = DateTime.now();
+    }
     history.add(removed);
     todos.refresh();
     history.refresh();

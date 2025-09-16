@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 import 'bindings/todo_binding.dart';
 import 'routes/pages.dart';
 import 'routes/routes.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id_ID', null);
   runApp(const MyApp());
 }
 
@@ -22,6 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: AppRoutes.loginPage,
       getPages: AppPages.pages,
+
       initialBinding: TodoBinding(),
     );
   }

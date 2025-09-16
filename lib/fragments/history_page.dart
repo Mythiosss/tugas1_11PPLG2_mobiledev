@@ -17,10 +17,13 @@ class HistoryPage extends StatelessWidget {
       itemBuilder: (context, index) {
         final todo = todoController.history[index];
         return CustomCardWidget(
-          text: todo.namaTodo,
-          todo: todo.deskripsiTodo,
+          namaTodo: todo.namaTodo,
+          deskripsiTodo: todo.deskripsiTodo,
           kategori: todo.kategoriTodo,
           isCompleted: todo.isCompleted,
+          dueDate: todo.dueDate,
+          completedAt: todo.completedAt,
+          removedAt: todo.removedAt,
           onDelete: () => todoController.deleteTodo(index),
           onDone: () => todoController.toggleCompleted(index),
         );
