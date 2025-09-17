@@ -10,37 +10,8 @@ class AddTodoPage extends StatelessWidget {
 
   final AddTodoController c = Get.find<AddTodoController>();
 
-  final List<String> _categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
-
   final mint = const Color(0xFF7FD6D6);
   final mintDark = const Color(0xFF5CB3B3);
-
-  String _formatDateTime(DateTime? dt) {
-    if (dt == null) return 'Tidak diatur';
-    return '${dt.day.toString().padLeft(2, '0')}-'
-        '${dt.month.toString().padLeft(2, '0')}-'
-        '${dt.year}';
-  }
-
-  Future<void> _pickDueDate(BuildContext context) async {
-    final now = DateTime.now();
-    final DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: c.selectedDueDate.value ?? now,
-      firstDate: DateTime(now.year - 2),
-      lastDate: DateTime(now.year + 5),
-    );
-
-    if (pickedDate == null) return;
-
-    final DateTime finalDateTime = DateTime(
-      pickedDate.year,
-      pickedDate.month,
-      pickedDate.day,
-    );
-
-    c.setDueDate(finalDateTime);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +80,7 @@ class AddTodoPage extends StatelessWidget {
 
                     Obx(
                           () => CustomDropdown(
-                        items: _categories,
+                        items: c.categories,
                         value: c.selectedKategori.value.isEmpty
                             ? null
                             : c.selectedKategori.value,
@@ -126,7 +97,7 @@ class AddTodoPage extends StatelessWidget {
                         color: Colors.transparent,
                         child: InkWell(
                           borderRadius: BorderRadius.circular(12),
-                          onTap: () => _pickDueDate(context),
+                          onTap: () => c.pickDueDate(context),
                           child: Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12, vertical: 14),
@@ -153,7 +124,7 @@ class AddTodoPage extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        _formatDateTime(
+                                        c.formatDateTime(
                                             c.selectedDueDate.value),
                                         style: TextStyle(
                                           fontSize: 15,
@@ -212,9 +183,7 @@ class AddTodoPage extends StatelessWidget {
                         textColor: Colors.white,
                         bgColor: enabled ? mintDark : Colors.grey,
                         onPressed: enabled
-                            ? () {
-                          c.addTodo();
-                        }
+                            ? () => c.addTodo()
                             : () {
                           Get.snackbar(
                             'Todo Info',
