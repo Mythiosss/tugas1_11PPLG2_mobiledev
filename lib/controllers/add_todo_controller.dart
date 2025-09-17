@@ -8,10 +8,40 @@ class AddTodoController extends GetxController {
   final deskripsiController = TextEditingController();
 
   var selectedKategori = "".obs;
-
   final Rxn<DateTime> selectedDueDate = Rxn<DateTime>();
 
   final TodoController todoController = Get.find<TodoController>();
+
+  final List<String> categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
+
+  // Format tanggal untuk UI
+  String formatDateTime(DateTime? dt) {
+    if (dt == null) return 'Tidak diatur';
+    return '${dt.day.toString().padLeft(2, '0')}-'
+        '${dt.month.toString().padLeft(2, '0')}-'
+        '${dt.year}';
+  }
+
+  // Pilih tanggal deadline
+  Future<void> pickDueDate(BuildContext context) async {
+    final now = DateTime.now();
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: selectedDueDate.value ?? now,
+      firstDate: DateTime(now.year - 2),
+      lastDate: DateTime(now.year + 5),
+    );
+
+    if (pickedDate == null) return;
+
+    final DateTime finalDateTime = DateTime(
+      pickedDate.year,
+      pickedDate.month,
+      pickedDate.day,
+    );
+
+    setDueDate(finalDateTime);
+  }
 
   void setKategori(String kategori) {
     selectedKategori.value = kategori;
@@ -30,6 +60,7 @@ class AddTodoController extends GetxController {
       );
       return;
     }
+
     try {
       todoController.todos.add(
         TodoModel(
