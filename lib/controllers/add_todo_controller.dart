@@ -86,7 +86,7 @@ class AddTodoController extends GetxController {
     Get.snackbar(
       "Berhasil",
       "Kegiatan berhasil ditambahkan!",
-      snackPosition: SnackPosition.BOTTOM,
+      snackPosition: SnackPosition.TOP,
     );
   }
 
