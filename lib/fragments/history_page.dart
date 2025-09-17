@@ -16,7 +16,7 @@ class HistoryPage extends StatelessWidget {
         body: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 50, bottom: 20), // Adjust top padding for status bar
+                padding: const EdgeInsets.only(top: 50, bottom: 20),
                 child: Text(
                   'History',
                   style: TextStyle(
