@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:tugas_flutter_1/controllers/todo_controller.dart';
 import 'package:tugas_flutter_1/models/todo_model.dart';
 import 'package:tugas_flutter_1/widgets/custom_card_widget.dart';
@@ -8,14 +7,10 @@ import 'package:tugas_flutter_1/widgets/custom_card_widget.dart';
 class HistoryPage extends StatelessWidget {
   HistoryPage({super.key});
 
-  final TodoController todoController = Get.find<TodoController>();
+  final TodoController c = Get.find<TodoController>();
+
   final Color mint = const Color(0xFF7FD6D6);
   final Color mintDark = const Color(0xFF5CB3B3);
-
-  String _formatDate(DateTime? dt) {
-    if (dt == null) return "-";
-    return DateFormat("d MMMM yyyy, HH:mm", "id_ID").format(dt);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +50,7 @@ class HistoryPage extends StatelessWidget {
         // ===== List History =====
         Expanded(
           child: Obx(() {
-            if (todoController.history.isEmpty) {
+            if (c.history.isEmpty) {
               return const Center(
                 child: Text(
                   "Belum ada riwayat todo.",
@@ -66,18 +61,9 @@ class HistoryPage extends StatelessWidget {
 
             return ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: todoController.history.length,
+              itemCount: c.history.length,
               itemBuilder: (context, index) {
-                final TodoModel todo = todoController.history[index];
-                final bool isCompleted = todo.completedAt != null;
-                final bool isRemoved = todo.removedAt != null && !todo.isCompleted;
-
-                final statusText = isCompleted
-                    ? "Selesai pada ${_formatDate(todo.completedAt)}"
-                    : "Dihapus pada ${_formatDate(todo.removedAt)}";
-
-                final statusColor = isCompleted ? Colors.green : Colors.red;
-                final statusIcon = isCompleted ? Icons.check_circle : Icons.cancel;
+                final TodoModel todo = c.history[index];
 
                 return CustomCardWidget(
                   namaTodo: todo.namaTodo,
@@ -85,9 +71,12 @@ class HistoryPage extends StatelessWidget {
                   kategori: todo.kategoriTodo,
                   isCompleted: todo.isCompleted,
                   dueDate: todo.dueDate,
-                  onDelete: () => todoController.deleteTodo(index),
-                  onDone: () => todoController.toggleCompleted(index),
-                );              },
+                  completedAt: todo.completedAt,
+                  removedAt: todo.removedAt,
+                  onDelete: () => c.deleteTodo(index),
+                  onDone: () => c.toggleCompleted(index),
+                );
+              },
             );
           }),
         ),
