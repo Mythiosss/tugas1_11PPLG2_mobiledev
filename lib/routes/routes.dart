@@ -7,4 +7,5 @@ class AppRoutes{
   static const String addTodo ="/addTodoPage";
   static const String sharlyfPage ="/sharlyfPage";
   static const String amirPage ="/amirPage";
+  static const String splashPage ="/splashPage";
 }
