@@ -16,15 +16,24 @@ class HistoryPage extends StatelessWidget {
         body: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 50, bottom: 20),
-                child: Text(
-                  'History',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+              padding: const EdgeInsets.only(top: 50, bottom: 20),
+                child: Container(
+                  width: double.infinity, // biar full ke samping
+                  color: Color(0xFF7FD6D6),     // background biru
+                  padding: const EdgeInsets.all(16), // kasih jarak biar gak mepet
+                  child: Center(
+                    child: Text(
+                      'History',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white, // teks jadi putih
+                      ),
+                    ),
                   ),
                 ),
-              ), Expanded(
+              ),
+              Expanded(
                   child: ListView.builder(
                     itemCount: todoController.history.length,
                     itemBuilder: (context, index) {

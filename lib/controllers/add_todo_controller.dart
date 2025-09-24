@@ -32,15 +32,9 @@ class AddTodoController extends GetxController {
       lastDate: DateTime(now.year + 5),
     );
 
-    if (pickedDate == null) return;
-
-    final DateTime finalDateTime = DateTime(
-      pickedDate.year,
-      pickedDate.month,
-      pickedDate.day,
-    );
-
-    setDueDate(finalDateTime);
+    if (pickedDate != null) {
+      setDueDate(DateTime(pickedDate.year, pickedDate.month, pickedDate.day));
+    }
   }
 
   void setKategori(String kategori) {
@@ -61,24 +55,14 @@ class AddTodoController extends GetxController {
       return;
     }
 
-    try {
-      todoController.todos.add(
-        TodoModel(
-          namaTodo: namaController.text.trim(),
-          deskripsiTodo: deskripsiController.text.trim(),
-          kategoriTodo: selectedKategori.value,
-          dueDate: selectedDueDate.value,
-        ),
-      );
-    } catch (e) {
-      todoController.todos.add(
-        TodoModel(
-          namaTodo: namaController.text.trim(),
-          deskripsiTodo: deskripsiController.text.trim(),
-          kategoriTodo: selectedKategori.value,
-        ),
-      );
-    }
+    todoController.todos.add(
+      TodoModel(
+        namaTodo: namaController.text.trim(),
+        deskripsiTodo: deskripsiController.text.trim(),
+        kategoriTodo: selectedKategori.value,
+        dueDate: selectedDueDate.value, 
+      ),
+    );
 
     clearFields();
 
