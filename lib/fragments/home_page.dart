@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 180,
+                height: 144,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [mint, mintDark],
@@ -54,7 +54,6 @@ class HomePage extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 28,
                   backgroundColor: Colors.white,
-                  child: Icon(Icons.person, size: 32, color: Colors.black54),
                 ),
               ),
             ],

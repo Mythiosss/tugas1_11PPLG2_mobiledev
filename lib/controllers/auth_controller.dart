@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tugas_flutter_1/routes/routes.dart';
 
 class AuthController extends GetxController {
@@ -8,7 +9,7 @@ class AuthController extends GetxController {
   var rememberMe = false.obs;
 
 
-  void auth() {
+  void auth() async{
     String usernameToString = username.text.toString().trim();
     String passwordToString = password.text.toString().trim();
 
@@ -19,14 +20,17 @@ class AuthController extends GetxController {
     }
 
     if (usernameToString == "mythios" && passwordToString == "detarune") {
-      Get.snackbar(
+      final prefs = await SharedPreferences.getInstance();
+        prefs.setString("username", username.text.toString());
+        Get.snackbar(
         "Auth",
         "Login Berhasil",
         backgroundColor: Colors.green,
         colorText: Colors.white,
         duration: Duration(seconds: 2),
+        
       );
-      Get.toNamed(AppRoutes.mainMenuPage);
+      Get.offAllNamed(AppRoutes.mainMenuPage);
     } else {
       Get.snackbar(
         "Auth",
