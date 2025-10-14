@@ -4,6 +4,10 @@ import 'package:tugas_flutter_1/bindings/bottom_nav_binding.dart';
 import 'package:tugas_flutter_1/fragments/splashscreen_page.dart';
 import 'package:tugas_flutter_1/pages/add_todo_page.dart';
 import 'package:tugas_flutter_1/pages/amir_profile.dart';
+import 'package:tugas_flutter_1/pages/responsive/amir_profile_responsive.dart';
+import 'package:tugas_flutter_1/pages/responsive/home_responsive.dart';
+import 'package:tugas_flutter_1/pages/responsive/login_responsive.dart';
+import 'package:tugas_flutter_1/pages/responsive/sharlyf_profile_responsive.dart';
 import 'package:tugas_flutter_1/pages/sharlyf_profile.dart';
 import '../bindings/todo_binding.dart';
 import '../fragments/home_page.dart';
@@ -24,5 +28,8 @@ class AppPages {
     GetPage(name: AppRoutes.sharlyfPage, page: () => SharlyfProfilePage()),
     GetPage(name: AppRoutes.amirPage, page: () => AmirProfilePage()),
     GetPage(name: AppRoutes.splashPage, page: () => SplashscreenPage()),
+    GetPage(name: AppRoutes.loginResponsive, page: () => LoginResponsive(), binding: AuthBinding()),
+    GetPage(name: AppRoutes.amirResponsive, page: () => AmirProfileResponsive(), binding: AuthBinding()),
+    GetPage(name: AppRoutes.sharlyfResponsive, page: () => SharlyfProfileResponsive(), binding: AuthBinding()),
   ];
 }

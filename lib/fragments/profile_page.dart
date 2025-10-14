@@ -32,7 +32,7 @@ class ProfilePage extends StatelessWidget {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(16),
                         onTap: () {
-                          Navigator.pushNamed(context, AppRoutes.amirPage);
+                          Navigator.pushNamed(context, AppRoutes.amirResponsive);
                         },
                         child: Container(
                           margin: const EdgeInsets.all(16),
@@ -89,7 +89,7 @@ class ProfilePage extends StatelessWidget {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(16),
                         onTap: () {
-                          Navigator.pushNamed(context, AppRoutes.sharlyfPage);
+                          Navigator.pushNamed(context, AppRoutes.sharlyfResponsive);
                         },
                         child: Container(
                           margin: const EdgeInsets.all(16),
