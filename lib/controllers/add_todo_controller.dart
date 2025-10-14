@@ -54,7 +54,6 @@ class AddTodoController extends GetxController {
       return;
     }
 
-    // Gunakan method addTodo dari controller yang sudah async
     await todoController.addTodo(
       TodoModel(
         namaTodo: namaController.text.trim(),

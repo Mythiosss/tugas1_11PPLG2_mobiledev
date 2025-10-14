@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tugas_flutter_1/controllers/add_todo_controller.dart';
+import 'package:tugas_flutter_1/fragments/home_page.dart';
+import 'package:tugas_flutter_1/routes/routes.dart';
 import 'package:tugas_flutter_1/widgets/custom_dropdown.dart';
 import 'package:tugas_flutter_1/widgets/custom_button.dart';
 import 'package:tugas_flutter_1/widgets/custom_tf.dart';
@@ -185,6 +187,7 @@ class AddTodoPage extends StatelessWidget {
                         onPressed: enabled
                             ? () => c.addTodo()
                             : () {
+                          Get.offNamed(AppRoutes.homePage);
                           Get.snackbar(
                             'Todo Info',
                             'Nama dan kategori harus diisi',
