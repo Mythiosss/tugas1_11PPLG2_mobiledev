@@ -14,7 +14,6 @@ class AddTodoController extends GetxController {
 
   final List<String> categories = const ['Sekolah', 'Pribadi', 'Pekerjaan'];
 
-  // Format tanggal untuk UI
   String formatDateTime(DateTime? dt) {
     if (dt == null) return 'Tidak diatur';
     return '${dt.day.toString().padLeft(2, '0')}-'
@@ -22,7 +21,6 @@ class AddTodoController extends GetxController {
         '${dt.year}';
   }
 
-  // Pilih tanggal deadline
   Future<void> pickDueDate(BuildContext context) async {
     final now = DateTime.now();
     final DateTime? pickedDate = await showDatePicker(
@@ -45,7 +43,8 @@ class AddTodoController extends GetxController {
     selectedDueDate.value = dt;
   }
 
-  void addTodo() {
+  // Update method addTodo menjadi async
+  Future<void> addTodo() async {
     if (namaController.text.isEmpty || selectedKategori.value.isEmpty) {
       Get.snackbar(
         "Error",
@@ -55,7 +54,8 @@ class AddTodoController extends GetxController {
       return;
     }
 
-    todoController.todos.add(
+    // Gunakan method addTodo dari controller yang sudah async
+    await todoController.addTodo(
       TodoModel(
         namaTodo: namaController.text.trim(),
         deskripsiTodo: deskripsiController.text.trim(),
