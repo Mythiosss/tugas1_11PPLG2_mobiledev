@@ -8,13 +8,13 @@ import 'package:tugas_flutter_1/pages/amir_profile.dart';
 import 'package:tugas_flutter_1/pages/login_page.dart';
 import 'package:tugas_flutter_1/pages/sharlyf_profile.dart';
 import 'package:tugas_flutter_1/pages/widescreen/amir_widescreen.dart';
-import 'package:tugas_flutter_1/pages/widescreen/history_widescreen_page.dart';
+import 'package:tugas_flutter_1/pages/widescreen/history_widescreen.dart';
 import 'package:tugas_flutter_1/pages/widescreen/home_widescreen_page.dart';
 import 'package:tugas_flutter_1/pages/widescreen/login_widescreen_page.dart';
 import 'package:tugas_flutter_1/pages/widescreen/sharlyf_profile_widescreen.dart';
 
-class SharlyfProfileResponsive extends StatelessWidget {
-  SharlyfProfileResponsive({super.key});
+class HistoryResponsive extends StatelessWidget {
+  HistoryResponsive({super.key});
 
   final controller = Get.find<ResponsiveController>();
 

@@ -8,6 +8,7 @@ import 'package:tugas_flutter_1/pages/responsive/amir_profile_responsive.dart';
 import 'package:tugas_flutter_1/pages/responsive/history_responsive.dart';
 import 'package:tugas_flutter_1/pages/responsive/home_responsive.dart';
 import 'package:tugas_flutter_1/pages/responsive/login_responsive.dart';
+import 'package:tugas_flutter_1/pages/responsive/sharlyf_profile_responsive.dart';
 import 'package:tugas_flutter_1/pages/sharlyf_profile.dart';
 import 'package:tugas_flutter_1/pages/widescreen/history_widescreen_page.dart';
 import 'package:tugas_flutter_1/pages/widescreen/home_widescreen_page.dart';
