@@ -11,8 +11,8 @@ import 'package:tugas_flutter_1/pages/widescreen/home_widescreen_page.dart';
 import 'package:tugas_flutter_1/pages/widescreen/login_widescreen_page.dart';
 import 'package:tugas_flutter_1/pages/widescreen/sharlyf_profile_widescreen.dart';
 
-class SharlyfProfileResponsive extends StatelessWidget {
-  SharlyfProfileResponsive({super.key});
+class HomeResponsive extends StatelessWidget {
+  HomeResponsive({super.key});
 
   final controller = Get.find<ResponsiveController>();
 

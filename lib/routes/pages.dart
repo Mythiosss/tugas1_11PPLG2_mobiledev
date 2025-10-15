@@ -5,6 +5,7 @@ import 'package:tugas_flutter_1/fragments/splashscreen_page.dart';
 import 'package:tugas_flutter_1/pages/add_todo_page.dart';
 import 'package:tugas_flutter_1/pages/amir_profile.dart';
 import 'package:tugas_flutter_1/pages/responsive/amir_profile_responsive.dart';
+import 'package:tugas_flutter_1/pages/responsive/history_responsive.dart';
 import 'package:tugas_flutter_1/pages/responsive/home_responsive.dart';
 import 'package:tugas_flutter_1/pages/responsive/login_responsive.dart';
 import 'package:tugas_flutter_1/pages/sharlyf_profile.dart';
@@ -21,8 +22,7 @@ import 'routes.dart';
 class AppPages {
   static final pages = [
     GetPage(name: AppRoutes.mainMenuPage, page: () => BottomNav(), binding: BottomNavBinding()),
-    GetPage(name: AppRoutes.homePage, page: () => HomePage(), binding: TodoBinding()),
-    GetPage(name: AppRoutes.homePage, page: () => HomeWidescreen(), binding: TodoBinding()),
+    GetPage(name: AppRoutes.homePage, page: () => HomeResponsive(), binding: TodoBinding()),
     GetPage(name: AppRoutes.historyPage, page: () => HistoryPage(), binding: TodoBinding()),
     GetPage(name: AppRoutes.historyPage, page: () => HistoryWidescreen(), binding: TodoBinding()),
     GetPage(name: AppRoutes.loginPage, page: () => LoginPage(), binding: AuthBinding()),
