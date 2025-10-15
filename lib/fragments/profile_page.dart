@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
     await prefs.remove('username'); // hapus username dari shared preferences
 
     // pindah ke loginPage
-    Navigator.pushReplacementNamed(context, AppRoutes.loginPage);
+    Navigator.pushReplacementNamed(context, AppRoutes.loginResponsive);
   }
 
   @override
