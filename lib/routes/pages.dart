@@ -11,6 +11,7 @@ import 'package:tugas_flutter_1/pages/responsive/login_responsive.dart';
 import 'package:tugas_flutter_1/pages/sharlyf_profile.dart';
 import 'package:tugas_flutter_1/pages/widescreen/history_widescreen_page.dart';
 import 'package:tugas_flutter_1/pages/widescreen/home_widescreen_page.dart';
+import 'package:tugas_flutter_1/pages/widescreen/side_bar.dart';
 import '../bindings/todo_binding.dart';
 import '../fragments/home_page.dart';
 import '../fragments/history_page.dart';
@@ -22,6 +23,7 @@ import 'routes.dart';
 class AppPages {
   static final pages = [
     GetPage(name: AppRoutes.mainMenuPage, page: () => BottomNav(), binding: BottomNavBinding()),
+    GetPage(name: AppRoutes.mainMenuPage, page: () => SideBar(), binding: BottomNavBinding()),
     GetPage(name: AppRoutes.homePage, page: () => HomeResponsive(), binding: TodoBinding()),
     GetPage(name: AppRoutes.historyPage, page: () => HistoryPage(), binding: TodoBinding()),
     GetPage(name: AppRoutes.historyPage, page: () => HistoryWidescreen(), binding: TodoBinding()),
