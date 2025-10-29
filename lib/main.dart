@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.loginResponsive,
+      initialRoute: AppRoutes.loginPage,
       getPages: AppPages.pages,
       initialBinding: TodoBinding(),
     );
